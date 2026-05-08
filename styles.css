@@ -1254,6 +1254,10 @@ body[data-page="cases"] .stack-block {
   padding: 36px 0 40px;
 }
 
+body[data-page="products"] .product-panel {
+  align-items: center;
+}
+
 body[data-page="products"] .product-panel + .product-panel,
 body[data-page="applications"] .stack-block + .stack-block,
 body[data-page="cases"] .stack-block + .stack-block {
