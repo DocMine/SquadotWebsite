@@ -10,12 +10,33 @@ const metaDescription = document.querySelector("#page-description");
 const ogTitle = document.querySelector("#og-title");
 const ogDescription = document.querySelector("#og-description");
 const ogLocale = document.querySelector("#og-locale");
-const currentYearTargets = document.querySelectorAll("[data-current-year]");
+const configuredTranslations = window.translations || null;
 
 function updateCurrentYear() {
   const year = new Date().getFullYear();
-  currentYearTargets.forEach((node) => {
+  document.querySelectorAll("[data-current-year]").forEach((node) => {
     node.textContent = String(year);
+  });
+}
+
+function getPageTranslation(lang) {
+  const page = body?.dataset?.page;
+  return configuredTranslations?.[lang]?.pages?.[page] || null;
+}
+
+function hydrateConfiguredTranslations() {
+  if (!configuredTranslations) return;
+
+  ["en", "zh"].forEach((lang) => {
+    const pageConfig = getPageTranslation(lang);
+    if (!pageConfig?.items) return;
+
+    document.querySelectorAll(`.lang-${lang}:not(img)`).forEach((node, index) => {
+      const nextValue = pageConfig.items[index];
+      if (typeof nextValue === "string") {
+        node.innerHTML = nextValue;
+      }
+    });
   });
 }
 
@@ -35,19 +56,21 @@ function setLanguage(lang) {
   root.setAttribute("data-lang", nextLang);
   root.setAttribute("lang", nextLang === "zh" ? "zh-CN" : "en");
 
+  const pageConfig = getPageTranslation(nextLang);
   const titleKey = nextLang === "zh" ? "titleZh" : "titleEn";
   const descriptionKey = nextLang === "zh" ? "descriptionZh" : "descriptionEn";
+  const nextTitle = pageConfig?.meta?.title || body?.dataset?.[titleKey];
+  const nextDescription = pageConfig?.meta?.description || body?.dataset?.[descriptionKey];
 
-  if (body?.dataset?.[titleKey]) {
-    document.title = body.dataset[titleKey];
+  if (nextTitle) {
+    document.title = nextTitle;
   }
 
   if (ogTitle) {
     ogTitle.setAttribute("content", document.title);
   }
 
-  if (metaDescription && body?.dataset?.[descriptionKey]) {
-    const nextDescription = body.dataset[descriptionKey];
+  if (metaDescription && nextDescription) {
     metaDescription.setAttribute("content", nextDescription);
 
     if (ogDescription) {
@@ -134,8 +157,9 @@ function initReveal() {
   reveals.forEach((item) => observer.observe(item));
 }
 
-updateCurrentYear();
+hydrateConfiguredTranslations();
 initLanguage();
+updateCurrentYear();
 initMenu();
 initLanguageButtons();
 initReveal();

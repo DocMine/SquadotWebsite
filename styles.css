@@ -455,7 +455,33 @@ button:focus-visible {
 .intro-copy h2 {
   margin: 0;
   line-height: 0.94;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
+}
+
+html[data-lang="zh"] .hero h1,
+html[data-lang="zh"] .section-heading h2,
+html[data-lang="zh"] .panel-copy h2,
+html[data-lang="zh"] .stack-copy h2,
+html[data-lang="zh"] .cta-band h2,
+html[data-lang="zh"] .intro-copy h2,
+html[data-lang="zh"] .footer-contact-callout h2,
+html[data-lang="zh"] .product-card h3,
+html[data-lang="zh"] .info-card h3 {
+  font-family: "Microsoft YaHei UI", "Noto Sans SC", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+html[data-lang="en"] .hero h1,
+html[data-lang="en"] .section-heading h2,
+html[data-lang="en"] .panel-copy h2,
+html[data-lang="en"] .stack-copy h2,
+html[data-lang="en"] .cta-band h2,
+html[data-lang="en"] .intro-copy h2,
+html[data-lang="en"] .footer-contact-callout h2 {
+  font-family: var(--nav-font);
+  letter-spacing: 0;
 }
 
 .hero-home h1 {
@@ -468,6 +494,42 @@ button:focus-visible {
   max-width: 15ch;
   font-size: clamp(2.3rem, 4vw, 4.1rem);
   color: var(--ink-on-dark);
+}
+
+html[data-lang="en"] .hero-home h1 {
+  max-width: 15ch;
+}
+
+html[data-lang="zh"] .hero-home h1 {
+  max-width: 12em;
+  font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+}
+
+html[data-lang="en"] .hero-page h1 {
+  max-width: 17ch;
+}
+
+html[data-lang="zh"] .hero-page h1 {
+  max-width: 13em;
+  font-size: clamp(2.1rem, 3.35vw, 3.45rem);
+}
+
+html[data-lang="zh"] .section-heading h2,
+html[data-lang="zh"] .intro-copy h2,
+html[data-lang="zh"] .panel-copy h2,
+html[data-lang="zh"] .stack-copy h2,
+html[data-lang="zh"] .cta-band h2,
+html[data-lang="zh"] .footer-contact-callout h2 {
+  max-width: 13em;
+}
+
+html[data-lang="en"] .section-heading h2,
+html[data-lang="en"] .intro-copy h2,
+html[data-lang="en"] .panel-copy h2,
+html[data-lang="en"] .stack-copy h2,
+html[data-lang="en"] .cta-band h2,
+html[data-lang="en"] .footer-contact-callout h2 {
+  max-width: 18ch;
 }
 
 .hero-text,
@@ -549,7 +611,7 @@ body[data-page="home"] .section-heading {
 body[data-page="home"] .section-heading h2,
 body[data-page="home"] .intro-copy h2,
 body[data-page="home"] .contact-closure-copy h2 {
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
 }
 
 body[data-page="home"] .hero-copy > .eyebrow,
@@ -885,7 +947,7 @@ body[data-page]:not([data-page="home"]) .section-shell.section-shell-closure {
   font-family: var(--nav-font);
   font-size: clamp(2.2rem, 3.2vw, 3.4rem);
   line-height: 0.94;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .intro-copy p,
@@ -1309,7 +1371,7 @@ body[data-page="cases"] .stack-block:first-of-type {
 body[data-page="cases"] .stack-copy h2 {
   max-width: 16ch;
   font-size: clamp(1.7rem, 2.6vw, 2.4rem);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .stack-copy h3 {
@@ -1515,7 +1577,7 @@ body[data-page="cases"] .stack-copy h2 {
 }
 
 .section-note-inline {
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .site-footer {
@@ -1576,7 +1638,7 @@ body[data-page="home"] .section-shell-closure {
   font-family: var(--nav-font);
   font-size: clamp(2rem, 2.8vw, 3.1rem);
   line-height: 0.94;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: #ffffff;
 }
 
@@ -1981,7 +2043,7 @@ body[data-page]:not([data-page="home"]) .reveal.is-visible .trust-grid > *:nth-c
   body[data-page="home"] .applications-grid .product-card h3,
   body[data-page="home"] .capability-grid .info-card h3 {
     font-size: 0.98rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 }
 
