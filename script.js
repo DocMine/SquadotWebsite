@@ -10,7 +10,7 @@ const metaDescription = document.querySelector("#page-description");
 const ogTitle = document.querySelector("#og-title");
 const ogDescription = document.querySelector("#og-description");
 const ogLocale = document.querySelector("#og-locale");
-const configuredTranslations = window.translations || null;
+const configuredCopy = window.siteCopy || null;
 
 function updateCurrentYear() {
   const year = new Date().getFullYear();
@@ -19,20 +19,23 @@ function updateCurrentYear() {
   });
 }
 
-function getPageTranslation(lang) {
-  const page = body?.dataset?.page;
-  return configuredTranslations?.[lang]?.pages?.[page] || null;
+function getConfiguredValue(lang, keyPath) {
+  return keyPath
+    .split(".")
+    .reduce((current, key) => current?.[key], configuredCopy?.[lang]);
 }
 
-function hydrateConfiguredTranslations() {
-  if (!configuredTranslations) return;
+function getPageCopy(lang) {
+  const page = body?.dataset?.page;
+  return configuredCopy?.[lang]?.pages?.[page] || null;
+}
+
+function renderConfiguredCopy() {
+  if (!configuredCopy) return;
 
   ["en", "zh"].forEach((lang) => {
-    const pageConfig = getPageTranslation(lang);
-    if (!pageConfig?.items) return;
-
-    document.querySelectorAll(`.lang-${lang}:not(img)`).forEach((node, index) => {
-      const nextValue = pageConfig.items[index];
+    document.querySelectorAll(`.lang-${lang}[data-copy]:not(img)`).forEach((node) => {
+      const nextValue = getConfiguredValue(lang, node.dataset.copy);
       if (typeof nextValue === "string") {
         node.innerHTML = nextValue;
       }
@@ -43,10 +46,14 @@ function hydrateConfiguredTranslations() {
 function updateMenuToggleLabel(lang, isOpen = siteHeader?.classList.contains("is-open")) {
   if (!menuToggle) return;
 
-  const labels =
-    lang === "zh"
-      ? { open: "打开导航", close: "关闭导航" }
-      : { open: "Open navigation", close: "Close navigation" };
+  const labels = {
+    open:
+      getConfiguredValue(lang, "common.menu.open") ||
+      (lang === "zh" ? "打开导航" : "Open navigation"),
+    close:
+      getConfiguredValue(lang, "common.menu.close") ||
+      (lang === "zh" ? "关闭导航" : "Close navigation"),
+  };
 
   menuToggle.setAttribute("aria-label", isOpen ? labels.close : labels.open);
 }
@@ -56,7 +63,7 @@ function setLanguage(lang) {
   root.setAttribute("data-lang", nextLang);
   root.setAttribute("lang", nextLang === "zh" ? "zh-CN" : "en");
 
-  const pageConfig = getPageTranslation(nextLang);
+  const pageConfig = getPageCopy(nextLang);
   const titleKey = nextLang === "zh" ? "titleZh" : "titleEn";
   const descriptionKey = nextLang === "zh" ? "descriptionZh" : "descriptionEn";
   const nextTitle = pageConfig?.meta?.title || body?.dataset?.[titleKey];
@@ -157,7 +164,7 @@ function initReveal() {
   reveals.forEach((item) => observer.observe(item));
 }
 
-hydrateConfiguredTranslations();
+renderConfiguredCopy();
 initLanguage();
 updateCurrentYear();
 initMenu();
