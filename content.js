@@ -963,7 +963,7 @@ window.siteCopy = {
           "engineering_discussion": "工程沟通",
           "share_site_conditions_delivery_mode_and_module_expectations": "提供现场条件、交付方式与模块预期，用于确定合适的具身交付路径。",
           "team_story_entry": "团队故事",
-          "team_story_entry_note": "进入 G_Robot 档案，查看北信科学生机器人社团发展史、历年奖项、历届团队和联系投稿。",
+          "team_story_entry_note": "进入 G_Robot 档案，查看北信科学生机器人社团发展史、赛事奖项、历届团队和联系投稿。",
           "enter_team_story": "进入团队故事",
           "start_contact": "开始联系",
           "beijing_squadot_technology_ltd": "北京方点科技有限公司",

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G_Robot 活动详情 | Squadot Tec.</title>
+  <meta id="page-description" name="description" content="G_Robot 社团活动详情，展示背景、过程、成果和现场图片。">
+  <meta id="og-title" property="og:title" content="G_Robot 活动详情 | Squadot Tec.">
+  <meta id="og-description" property="og:description" content="G_Robot 社团活动详情，展示背景、过程、成果和现场图片。">
+  <meta id="og-locale" property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Squadot Tec.">
+  <link rel="stylesheet" href="./team-story.css">
+</head>
+<body
+  data-title-en="G_Robot Activity Detail | Squadot Tec."
+  data-title-zh="G_Robot 活动详情 | Squadot Tec."
+  data-description-en="G_Robot activity detail page for events, outcomes and images."
+  data-description-zh="G_Robot 社团活动详情，展示背景、过程、成果和现场图片。"
+  data-render-detail
+>
+  <header class="story-header">
+    <div class="header-inner">
+      <a class="brand" href="../about.html" aria-label="Squadot Tec. About">
+        <img class="lang-en" src="../assets/brand/squadot-en.webp" alt="Squadot Tec." width="591" height="591" decoding="async">
+        <img class="lang-zh" src="../assets/brand/squadot-zh.webp" alt="Squadot Tec." width="591" height="591" decoding="async">
+        <span class="brand-copy"><strong>Team Story</strong><span>G_Robot team</span></span>
+      </a>
+      <div class="header-actions">
+        <a class="back-link" href="./index.html"><span class="lang-en">Back to Team</span><span class="lang-zh">返回社团介绍</span></a>
+        <nav class="story-nav" aria-label="Team story navigation">
+          <a href="./index.html"><span class="lang-en">History</span><span class="lang-zh">发展史</span></a>
+          <a href="./teams.html"><span class="lang-en">Teams</span><span class="lang-zh">历届团队</span></a>
+          <a href="./submit.html"><span class="lang-en">Activities</span><span class="lang-zh">全部活动</span></a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" data-lang-switch="en" aria-label="Switch to English">EN</button>
+          <button type="button" data-lang-switch="zh" aria-label="切换到中文">中文</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero detail-hero reveal">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow" data-detail-category></p>
+          <h1 data-detail-title></h1>
+          <p class="hero-text" data-detail-summary></p>
+          <ul class="hero-keywords">
+            <li><time data-detail-date></time></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./submit.html">浏览全部活动</a>
+            <a class="button button-secondary" href="./index.html">返回发展史</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band band-light reveal">
+      <div class="detail-layout" data-detail-layout>
+        <figure class="detail-main-image">
+          <img data-detail-image alt="" loading="eager" decoding="async">
+        </figure>
+        <div class="detail-copy" data-render-detail-sections></div>
+      </div>
+    </section>
+
+    <section class="section band band-alt reveal" data-detail-gallery-section>
+      <div class="section-heading">
+        <p class="eyebrow">Image Record</p>
+        <h2>相关图片</h2>
+        <p>这里展示活动中的人物、比赛、训练和现场场景。</p>
+      </div>
+      <div class="detail-gallery" data-render-detail-gallery></div>
+    </section>
+
+    <section class="section band band-light reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Related</p>
+        <h2>相关内容</h2>
+        <p>按同类主题和相近年份推荐，可继续浏览社团发展脉络。</p>
+      </div>
+      <div class="article-grid" data-render-related></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>G_Robot Team Story</strong>
+        <p>继续了解 G_Robot 的活动、成果和团队故事。</p>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">发展史首页</a>
+        <a href="./teams.html">历届团队</a>
+        <a href="./submit.html">全部活动</a>
+      </div>
+      <div class="footer-legal">Copyright <span data-current-year></span> Squadot Tec.</div>
+    </div>
+  </footer>
+  <script src="./archive-data.js"></script>
+  <script src="./team-story.js"></script>
+</body>
+</html>
